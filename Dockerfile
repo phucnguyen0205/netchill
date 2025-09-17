@@ -8,9 +8,8 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-di
 FROM php:8.2-apache
 
 RUN apt-get update && apt-get install -y \
-    libzip-dev unzip git libpng-dev libjpeg-dev libfreetype6-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo pdo_mysql zip mbstring bcmath exif gd
+    libzip-dev unzip git \
+    && docker-php-ext-install pdo pdo_mysql zip mbstring bcmath exif
 
 # Copy source từ stage 1
 COPY --from=vendor /app /var/www/html
