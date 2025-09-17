@@ -7,9 +7,11 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-di
 # Stage 2: PHP + Apache
 FROM php:8.2-apache
 
-RUN apt-get update && apt-get install -y \
-    libzip-dev unzip git \
-    && docker-php-ext-install pdo pdo_mysql zip mbstring bcmath exif
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libzip-dev unzip git libonig-dev \
+    && docker-php-ext-install pdo pdo_mysql zip mbstring bcmath exif \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 
 # Copy source từ stage 1
 COPY --from=vendor /app /var/www/html
