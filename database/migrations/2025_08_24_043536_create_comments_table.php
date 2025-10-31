@@ -8,15 +8,19 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_id')->nullable(); // <-- đặt ngay sau id, bỏ after()
-            $table->foreign('parent_id')->references('id')->on('comments')->onDelete('cascade');
-        
+
+            // Self reference
+            $table->foreignId('parent_id')
+                  ->nullable()
+                  ->constrained('comments')
+                  ->cascadeOnDelete();
+
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('movie_id')->constrained()->cascadeOnDelete();
+
             $table->text('content');
             $table->timestamps();
         });
-        
     }
 
     public function down(): void {

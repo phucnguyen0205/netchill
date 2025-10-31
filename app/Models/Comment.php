@@ -9,21 +9,19 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'movie_id', 'content'];
+    protected $fillable = [
+        'movie_id','user_id','content','parent_id','is_secret'
+    ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    public function movie(){ return $this->belongsTo(Movie::class); }
+    public function user(){ return $this->belongsTo(User::class); }
 
-    public function movie()
-    {
-        return $this->belongsTo(Movie::class);
-    }
-    public function replies()
-{
-    return $this->hasMany(Comment::class, 'parent_id')
-                ->orderBy('created_at', 'desc'); // mới nhất trước
-}
+    public function parent(){ return $this->belongsTo(Comment::class,'parent_id'); }
+    public function replies(){ return $this->hasMany(Comment::class,'parent_id')->latest(); }
+
+    public function reactions(){ return $this->hasMany(CommentReaction::class); }
+    public function votes(){ return $this->hasMany(\App\Models\CommentVote::class); }
+    public function likesCount(){ return $this->reactions()->where('value',1); }
+    public function dislikesCount(){ return $this->reactions()->where('value',-1); }
 
 }

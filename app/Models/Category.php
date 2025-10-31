@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str; // ✅ Thêm dòng này
 
+
 class Category extends Model
 {
     use HasFactory;
@@ -14,8 +15,10 @@ class Category extends Model
 
     public function movies()
     {
-        return $this->hasMany(Movie::class);
+        return $this->belongsToMany(Movie::class, 'category_movie', 'category_id', 'movie_id')
+                    ->withTimestamps();
     }
+    
 
     protected static function booted()
     {
@@ -24,5 +27,9 @@ class Category extends Model
                 $category->slug = Str::slug($category->name);
             }
         });
+    }
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

@@ -1,0 +1,267 @@
+PHPUnit 10.5.53 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.29 with Xdebug 3.4.6
+Configuration: /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/phpunit.xml
+
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true                                                    0.08s  
+
+   PASS  Tests\Feature\Auth\AuthenticationTest
+  ✓ login screen can be rendered                                         1.03s  
+  ✓ users can authenticate using the login screen                        0.11s  
+  ✓ users can not authenticate with invalid password                     0.26s  
+  ✓ users can logout                                                     0.06s  
+
+   PASS  Tests\Feature\Auth\EmailVerificationTest
+  ✓ email verification screen can be rendered                            0.05s  
+  ✓ email can be verified                                                0.05s  
+  ✓ email is not verified with invalid hash                              0.05s  
+
+   PASS  Tests\Feature\Auth\PasswordConfirmationTest
+  ✓ confirm password screen can be rendered                              0.05s  
+  ✓ password can be confirmed                                            0.04s  
+  ✓ password is not confirmed with invalid password                      0.25s  
+
+   PASS  Tests\Feature\Auth\PasswordResetTest
+  ✓ reset password link screen can be rendered                           0.05s  
+  ✓ reset password link can be requested                                 0.07s  
+  ✓ reset password screen can be rendered                                0.07s  
+  ✓ password can be reset with valid token                               0.07s  
+
+   PASS  Tests\Feature\Auth\PasswordUpdateTest
+  ✓ password can be updated                                              0.07s  
+  ✓ correct password must be provided to update password                 0.05s  
+
+   PASS  Tests\Feature\Auth\RegistrationTest
+  ✓ registration screen can be rendered                                  0.05s  
+  ✓ new users can register                                               0.05s  
+
+   PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                        0.09s  
+
+   FAIL  Tests\Feature\NetchillLiveTest
+  ✓ can open homepage                                                    0.05s  
+  ⨯ detai page loads with existing movie                                 0.05s  
+  ⨯ logged user can add movie to existing watchlist                      0.04s  
+
+   FAIL  Tests\Feature\ProfileTest
+  ✓ profile page is displayed                                            0.08s  
+  ⨯ profile information can be updated                                   0.05s  
+  ⨯ email verification status is unchanged when the email address is un… 0.05s  
+  ⨯ user can delete their account                                        0.50s  
+  ⨯ correct password must be provided to delete account                  0.22s  
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\NetchillLiveTest > detai page loads with existing m…   
+  Không tìm thấy Movie nào trong DB thật.
+Failed asserting that null is not null.
+
+  at tests/Feature/NetchillLiveTest.php:27
+     23▕     #[Test]
+     24▕     public function detai_page_loads_with_existing_movie(): void
+     25▕     {
+     26▕         $movie = Movie::query()->first();
+  ➜  27▕         $this->assertNotNull($movie, 'Không tìm thấy Movie nào trong DB thật.');
+     28▕ 
+     29▕         $res = $this->get(route('movies.detai', $movie->slug));
+     30▕         $res->assertStatus(200);
+     31▕     }
+
+  1   tests/Feature/NetchillLiveTest.php:27
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\NetchillLiveTest > logged user can add movie to exi…   
+  Không có movie trong DB.
+Failed asserting that null is not null.
+
+  at tests/Feature/NetchillLiveTest.php:42
+     38▕         ]);
+     39▕         $this->actingAs($user);
+     40▕ 
+     41▕         $movie = Movie::query()->first();
+  ➜  42▕         $this->assertNotNull($movie, 'Không có movie trong DB.');
+     43▕ 
+     44▕         $watchlist = Watchlist::query()->where('user_id', $user->id)->first()
+     45▕             ?? Watchlist::create(['user_id' => $user->id, 'name' => 'Test WL']);
+     46▕
+
+  1   tests/Feature/NetchillLiveTest.php:42
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\ProfileTest > profile information can be updated       
+  Failed asserting that two strings are equal.
+  -'http://localhost/profile'
+  +'http://localhost'
+  
+
+  at tests/Feature/ProfileTest.php:37
+     33▕             ]);
+     34▕ 
+     35▕         $response
+     36▕             ->assertSessionHasNoErrors()
+  ➜  37▕             ->assertRedirect('/profile');
+     38▕ 
+     39▕         $user->refresh();
+     40▕ 
+     41▕         $this->assertSame('Test User', $user->name);
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\ProfileTest > email verification status is unchange…   
+  Failed asserting that two strings are equal.
+  -'http://localhost/profile'
+  +'http://localhost'
+  
+
+  at tests/Feature/ProfileTest.php:59
+     55▕             ]);
+     56▕ 
+     57▕         $response
+     58▕             ->assertSessionHasNoErrors()
+  ➜  59▕             ->assertRedirect('/profile');
+     60▕ 
+     61▕         $this->assertNotNull($user->refresh()->email_verified_at);
+     62▕     }
+     63▕
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\ProfileTest > user can delete their account            
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 500.
+Failed asserting that false is true.
+
+  at tests/Feature/ProfileTest.php:76
+     72▕             ]);
+     73▕ 
+     74▕         $response
+     75▕             ->assertSessionHasNoErrors()
+  ➜  76▕             ->assertRedirect('/');
+     77▕ 
+     78▕         $this->assertGuest();
+     79▕         $this->assertNull($user->fresh());
+     80▕     }
+
+  ────────────────────────────────────────────────────────────────────────────  
+   FAILED  Tests\Feature\ProfileTest > correct password must be provided to…    
+  Session is missing expected key [errors].
+Failed asserting that false is true.
+
+  at tests/Feature/ProfileTest.php:94
+     90▕                 'password' => 'wrong-password',
+     91▕             ]);
+     92▕ 
+     93▕         $response
+  ➜  94▕             ->assertSessionHasErrorsIn('userDeletion', 'password')
+     95▕             ->assertRedirect('/profile');
+     96▕ 
+     97▕         $this->assertNotNull($user->fresh());
+     98▕     }
+
+
+  Tests:    6 failed, 22 passed (53 assertions)
+  Duration: 3.85s
+
+Time: 00:03.764, Memory: 56.50 MB
+
+Authentication (Tests\Feature\Auth\Authentication)
+ ✔ Login screen can be rendered
+ ✔ Users can authenticate using the login screen
+ ✔ Users can not authenticate with invalid password
+ ✔ Users can logout
+
+Email Verification (Tests\Feature\Auth\EmailVerification)
+ ✔ Email verification screen can be rendered
+ ✔ Email can be verified
+ ✔ Email is not verified with invalid hash
+
+Example (Tests\Feature\Example)
+ ✔ The application returns a successful response
+
+Example (Tests\Unit\Example)
+ ✔ That true is true
+
+Netchill Live (Tests\Feature\NetchillLive)
+ ✔ Can open homepage
+ ✘ Detai page loads with existing movie
+   │
+   │ Không tìm thấy Movie nào trong DB thật.
+   │ Failed asserting that null is not null.
+   │
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/tests/Feature/NetchillLiveTest.php:27
+   │
+ ✘ Logged user can add movie to existing watchlist
+   │
+   │ Không có movie trong DB.
+   │ Failed asserting that null is not null.
+   │
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/tests/Feature/NetchillLiveTest.php:42
+   │
+
+Password Confirmation (Tests\Feature\Auth\PasswordConfirmation)
+ ✔ Confirm password screen can be rendered
+ ✔ Password can be confirmed
+ ✔ Password is not confirmed with invalid password
+
+Password Reset (Tests\Feature\Auth\PasswordReset)
+ ✔ Reset password link screen can be rendered
+ ✔ Reset password link can be requested
+ ✔ Reset password screen can be rendered
+ ✔ Password can be reset with valid token
+
+Password Update (Tests\Feature\Auth\PasswordUpdate)
+ ✔ Password can be updated
+ ✔ Correct password must be provided to update password
+
+Profile (Tests\Feature\Profile)
+ ✔ Profile page is displayed
+ ✘ Profile information can be updated
+   │
+   │ Failed asserting that two strings are equal.
+   │ --- Expected
+   │ +++ Actual
+   │ @@ @@
+   │ -'http://localhost/profile'
+   │ +'http://localhost'
+   │
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:312
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:179
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/tests/Feature/ProfileTest.php:37
+   │
+ ✘ Email verification status is unchanged when the email address is unchanged
+   │
+   │ Failed asserting that two strings are equal.
+   │ --- Expected
+   │ +++ Actual
+   │ @@ @@
+   │ -'http://localhost/profile'
+   │ +'http://localhost'
+   │
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:312
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:179
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/tests/Feature/ProfileTest.php:59
+   │
+ ✘ User can delete their account
+   │
+   │ Expected response status code [201, 301, 302, 303, 307, 308] but received 500.
+   │ Failed asserting that false is true.
+   │
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:173
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/tests/Feature/ProfileTest.php:76
+   │
+ ✘ Correct password must be provided to delete account
+   │
+   │ Session is missing expected key [errors].
+   │ Failed asserting that false is true.
+   │
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:1263
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:1340
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:1434
+   │ /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/tests/Feature/ProfileTest.php:94
+   │
+
+Registration (Tests\Feature\Auth\Registration)
+ ✔ Registration screen can be rendered
+ ✔ New users can register
+
+FAILURES!
+Tests: 28, Assertions: 53, Failures: 6.
+
+Generating code coverage report in HTML format ... done [00:00.402]

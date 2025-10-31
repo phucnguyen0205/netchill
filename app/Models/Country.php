@@ -9,6 +9,15 @@ class Country extends Model
 {
     use HasFactory;
     
-    // Add the fillable property to allow mass assignment
-    protected $fillable = ['name', 'slug'];
+  // app/Models/Country.php
+public function movies()
+{
+    return $this->belongsToMany(\App\Models\Movie::class, 'country_movie', 'country_id', 'movie_id');
+}
+
+public function getRouteKeyName(): string
+{
+    return 'slug'; // nếu bạn route theo slug
+}
+
 }

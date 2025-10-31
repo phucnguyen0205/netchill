@@ -8,17 +8,17 @@
         </div>
 
         <div class="col-md-9">
-            <h1 class="text-light">Quản lý Thể loại</h1>
+            <h1 class="text-light">Quản lý Phim lẻ</h1>
 
             <div class="card mb-4 bg-dark text-light">
                 <div class="card-header bg-dark text-light">
-                    <h5 class="mb-0">Thêm Thể loại mới</h5>
+                    <h5 class="mb-0">Thêm Phim lẻ mới</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('genres.store') }}" method="POST">
                         @csrf
                         <div class="input-group">
-                            <input type="text" name="name" class="form-control" placeholder="Tên thể loại mới" required>
+                            <input type="text" name="name" class="form-control" placeholder="Tên Phim lẻ mới" required>
                             <button type="submit" class="btn btn-primary">Thêm</button>
                         </div>
                     </form>

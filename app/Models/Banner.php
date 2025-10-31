@@ -7,16 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Banner extends Model
 {
-    use HasFactory;
+    protected $fillable = ['movie_id', 'image_path', 'variant', 'title', 'description'];
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'title',
-        'image_path',
-        'link',
-    ];
+    public function movie()
+    {
+        return $this->belongsTo(\App\Models\Movie::class);
+    }
 }
+

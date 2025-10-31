@@ -71,7 +71,8 @@ class VideoController extends Controller
         }
 
         // Mở file đích để ghi
-        $out = fopen($finalFile, 'ab');
+        $out = fopen($finalFile, 'wb');
+
 
         // Ghép từng chunk
         for ($i = 0; $i < $total; $i++) {

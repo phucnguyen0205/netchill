@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Test Documentation</title>
+        <style>
+            body {
+                text-rendering: optimizeLegibility;
+                font-family: Source SansSerif Pro, Arial, sans-serif;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2rem;
+                background-color: #fff;
+                color: #000;
+            }
+
+            body > ul > li {
+                font-size: larger;
+            }
+
+            h2 {
+                font-size: larger;
+                text-decoration-line: underline;
+                text-decoration-thickness: 2px;
+                margin: 0;
+                padding: 0.5rem 0;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0 0 2rem;
+                padding: 0 0 0 1rem;
+                text-indent: -1rem;
+            }
+
+            .success:before {
+                color: #4e9a06;
+                content: '✓';
+                padding-right: 0.5rem;
+            }
+
+            .defect {
+                color: #a40000;
+            }
+
+            .defect:before {
+                color: #a40000;
+                content: '✗';
+                padding-right: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Authentication (Tests\Feature\Auth\Authentication)</h2>
+        <ul>
+            <li class="success">Login screen can be rendered</li>
+            <li class="success">Users can authenticate using the login screen</li>
+            <li class="success">Users can not authenticate with invalid password</li>
+            <li class="success">Users can logout</li>
+        </ul>
+        <h2>Email Verification (Tests\Feature\Auth\EmailVerification)</h2>
+        <ul>
+            <li class="success">Email verification screen can be rendered</li>
+            <li class="success">Email can be verified</li>
+            <li class="success">Email is not verified with invalid hash</li>
+        </ul>
+        <h2>Example (Tests\Feature\Example)</h2>
+        <ul>
+            <li class="defect">The application returns a successful response</li>
+        </ul>
+        <h2>Example (Tests\Unit\Example)</h2>
+        <ul>
+            <li class="success">That true is true</li>
+        </ul>
+        <h2>Netchill Live (Tests\Feature\NetchillLive)</h2>
+        <ul>
+            <li class="defect">Can open homepage</li>
+            <li class="defect">Detai page loads with existing movie</li>
+            <li class="defect">Logged user can add movie to existing watchlist</li>
+        </ul>
+        <h2>Password Confirmation (Tests\Feature\Auth\PasswordConfirmation)</h2>
+        <ul>
+            <li class="success">Confirm password screen can be rendered</li>
+            <li class="success">Password can be confirmed</li>
+            <li class="success">Password is not confirmed with invalid password</li>
+        </ul>
+        <h2>Password Reset (Tests\Feature\Auth\PasswordReset)</h2>
+        <ul>
+            <li class="success">Reset password link screen can be rendered</li>
+            <li class="success">Reset password link can be requested</li>
+            <li class="success">Reset password screen can be rendered</li>
+            <li class="success">Password can be reset with valid token</li>
+        </ul>
+        <h2>Password Update (Tests\Feature\Auth\PasswordUpdate)</h2>
+        <ul>
+            <li class="success">Password can be updated</li>
+            <li class="success">Correct password must be provided to update password</li>
+        </ul>
+        <h2>Profile (Tests\Feature\Profile)</h2>
+        <ul>
+            <li class="defect">Profile page is displayed</li>
+            <li class="defect">Profile information can be updated</li>
+            <li class="defect">Email verification status is unchanged when the email address is unchanged</li>
+            <li class="defect">User can delete their account</li>
+            <li class="defect">Correct password must be provided to delete account</li>
+        </ul>
+        <h2>Registration (Tests\Feature\Auth\Registration)</h2>
+        <ul>
+            <li class="success">Registration screen can be rendered</li>
+            <li class="success">New users can register</li>
+        </ul>
+    </body>
+</html>

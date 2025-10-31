@@ -2,9 +2,39 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
+
+if (!empty($data['banner'])) {
+    $srcPath = Storage::disk('public')->path($data['banner']);
+
+    // Tạo file hero 1920x800
+    $heroRel = 'banners/hero-' . $movie->id . '-' . Str::random(8) . '.jpg';
+    Image::make($srcPath)->fit(1920, 800)->save(Storage::disk('public')->path($heroRel), 85, 'jpg');
+
+    // Tạo file mobile 1080x1350
+    $mobileRel = 'banners/mobile-' . $movie->id . '-' . Str::random(8) . '.jpg';
+    Image::make($srcPath)->fit(1080, 1350)->save(Storage::disk('public')->path($mobileRel), 85, 'jpg');
+
+    $movie->banners()->createMany([
+        [
+            'image_path'  => $heroRel,
+            'variant'     => 'hero',
+            'title'       => $data['title'],
+            'description' => Str::limit($data['description'] ?? '', 160),
+        ],
+        [
+            'image_path'  => $mobileRel,
+            'variant'     => 'mobile',
+            'title'       => $data['title'],
+            'description' => Str::limit($data['description'] ?? '', 160),
+        ],
+    ]);
+}
 return [
-
+    
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -83,7 +113,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +126,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+   'fallback_locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------

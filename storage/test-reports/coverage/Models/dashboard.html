@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/app/Models</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/Users/nhungnguyen/Documents/VTC_ky2/project2/netchill/app</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Models</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Comment.php.html#8">App\Models\Comment</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CommentReaction.php.html#8">App\Models\CommentReaction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CommentVote.php.html#6">App\Models\CommentVote</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Favorite.php.html#7">App\Models\Favorite</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Person.php.html#8">App\Models\Person</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Rating.php.html#7">App\Models\Rating</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#11">App\Models\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Watchlist.php.html#8">App\Models\Watchlist</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#8">App\Models\Movie</a></td><td class="text-right">6%</td></tr>
+       <tr><td><a href="Category.php.html#9">App\Models\Category</a></td><td class="text-right">40%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Category.php.html#9">App\Models\Category</a></td><td class="text-right">4</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Category.php.html#15"><abbr title="App\Models\Category::movies">movies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#16"><abbr title="App\Models\Comment::movie">movie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#17"><abbr title="App\Models\Comment::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#19"><abbr title="App\Models\Comment::parent">parent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#20"><abbr title="App\Models\Comment::replies">replies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#22"><abbr title="App\Models\Comment::reactions">reactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#23"><abbr title="App\Models\Comment::votes">votes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#24"><abbr title="App\Models\Comment::likesCount">likesCount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#25"><abbr title="App\Models\Comment::dislikesCount">dislikesCount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CommentReaction.php.html#13"><abbr title="App\Models\CommentReaction::comment">comment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CommentReaction.php.html#14"><abbr title="App\Models\CommentReaction::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CommentVote.php.html#8"><abbr title="App\Models\CommentVote::comment">comment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="CommentVote.php.html#9"><abbr title="App\Models\CommentVote::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Favorite.php.html#12"><abbr title="App\Models\Favorite::favoritable">favoritable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#27"><abbr title="App\Models\Movie::sluggable">sluggable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#35"><abbr title="App\Models\Movie::category">category</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#40"><abbr title="App\Models\Movie::comments">comments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#51"><abbr title="App\Models\Movie::getAvgRatingAttribute">getAvgRatingAttribute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#57"><abbr title="App\Models\Movie::getRouteKeyName">getRouteKeyName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#61"><abbr title="App\Models\Movie::getRatingsCountAttribute">getRatingsCountAttribute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#65"><abbr title="App\Models\Movie::favoriters">favoriters</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#69"><abbr title="App\Models\Movie::watchlists">watchlists</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Person.php.html#20"><abbr title="App\Models\Person::favorites">favorites</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Person.php.html#26"><abbr title="App\Models\Person::movies">movies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Rating.php.html#11"><abbr title="App\Models\Rating::movie">movie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Rating.php.html#12"><abbr title="App\Models\Rating::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#32"><abbr title="App\Models\User::favorites">favorites</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#37"><abbr title="App\Models\User::favoriteMovies">favoriteMovies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#45"><abbr title="App\Models\User::favoritePeople">favoritePeople</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#54"><abbr title="App\Models\User::hasFavorited">hasFavorited</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#62"><abbr title="App\Models\User::hasFavoritedModel">hasFavoritedModel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Watchlist.php.html#14"><abbr title="App\Models\Watchlist::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Watchlist.php.html#18"><abbr title="App\Models\Watchlist::movies">movies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Category.php.html#20"><abbr title="App\Models\Category::booted">booted</abbr></a></td><td class="text-right">50%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Category.php.html#20"><abbr title="App\Models\Category::booted">booted</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.16</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.29</a> and <a href="https://phpunit.de/">PHPUnit 10.5.53</a> at Sat Oct 11 11:56:01 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../_js/d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([8,1,0,0,0,1,0,0,0,0,0,3], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([33,0,0,0,0,0,1,0,0,0,0,1], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"Banner.php.html#8\">App\\Models\\Banner<\/a>"],[40,3,"<a href=\"Category.php.html#9\">App\\Models\\Category<\/a>"],[0,8,"<a href=\"Comment.php.html#8\">App\\Models\\Comment<\/a>"],[0,2,"<a href=\"CommentReaction.php.html#8\">App\\Models\\CommentReaction<\/a>"],[0,2,"<a href=\"CommentVote.php.html#6\">App\\Models\\CommentVote<\/a>"],[100,0,"<a href=\"Country.php.html#8\">App\\Models\\Country<\/a>"],[0,1,"<a href=\"Favorite.php.html#7\">App\\Models\\Favorite<\/a>"],[100,0,"<a href=\"Genre.php.html#8\">App\\Models\\Genre<\/a>"],[6.666666666666667,9,"<a href=\"Movie.php.html#8\">App\\Models\\Movie<\/a>"],[0,2,"<a href=\"Person.php.html#8\">App\\Models\\Person<\/a>"],[0,2,"<a href=\"Rating.php.html#7\">App\\Models\\Rating<\/a>"],[0,5,"<a href=\"User.php.html#11\">App\\Models\\User<\/a>"],[0,2,"<a href=\"Watchlist.php.html#8\">App\\Models\\Watchlist<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Category.php.html#15\">App\\Models\\Category::movies<\/a>"],[50,2,"<a href=\"Category.php.html#20\">App\\Models\\Category::booted<\/a>"],[0,1,"<a href=\"Comment.php.html#16\">App\\Models\\Comment::movie<\/a>"],[0,1,"<a href=\"Comment.php.html#17\">App\\Models\\Comment::user<\/a>"],[0,1,"<a href=\"Comment.php.html#19\">App\\Models\\Comment::parent<\/a>"],[0,1,"<a href=\"Comment.php.html#20\">App\\Models\\Comment::replies<\/a>"],[0,1,"<a href=\"Comment.php.html#22\">App\\Models\\Comment::reactions<\/a>"],[0,1,"<a href=\"Comment.php.html#23\">App\\Models\\Comment::votes<\/a>"],[0,1,"<a href=\"Comment.php.html#24\">App\\Models\\Comment::likesCount<\/a>"],[0,1,"<a href=\"Comment.php.html#25\">App\\Models\\Comment::dislikesCount<\/a>"],[0,1,"<a href=\"CommentReaction.php.html#13\">App\\Models\\CommentReaction::comment<\/a>"],[0,1,"<a href=\"CommentReaction.php.html#14\">App\\Models\\CommentReaction::user<\/a>"],[0,1,"<a href=\"CommentVote.php.html#8\">App\\Models\\CommentVote::comment<\/a>"],[0,1,"<a href=\"CommentVote.php.html#9\">App\\Models\\CommentVote::user<\/a>"],[0,1,"<a href=\"Favorite.php.html#12\">App\\Models\\Favorite::favoritable<\/a>"],[0,1,"<a href=\"Movie.php.html#27\">App\\Models\\Movie::sluggable<\/a>"],[0,1,"<a href=\"Movie.php.html#35\">App\\Models\\Movie::category<\/a>"],[0,1,"<a href=\"Movie.php.html#40\">App\\Models\\Movie::comments<\/a>"],[100,1,"<a href=\"Movie.php.html#45\">App\\Models\\Movie::ratings<\/a>"],[0,1,"<a href=\"Movie.php.html#51\">App\\Models\\Movie::getAvgRatingAttribute<\/a>"],[0,1,"<a href=\"Movie.php.html#57\">App\\Models\\Movie::getRouteKeyName<\/a>"],[0,1,"<a href=\"Movie.php.html#61\">App\\Models\\Movie::getRatingsCountAttribute<\/a>"],[0,1,"<a href=\"Movie.php.html#65\">App\\Models\\Movie::favoriters<\/a>"],[0,1,"<a href=\"Movie.php.html#69\">App\\Models\\Movie::watchlists<\/a>"],[0,1,"<a href=\"Person.php.html#20\">App\\Models\\Person::favorites<\/a>"],[0,1,"<a href=\"Person.php.html#26\">App\\Models\\Person::movies<\/a>"],[0,1,"<a href=\"Rating.php.html#11\">App\\Models\\Rating::movie<\/a>"],[0,1,"<a href=\"Rating.php.html#12\">App\\Models\\Rating::user<\/a>"],[0,1,"<a href=\"User.php.html#32\">App\\Models\\User::favorites<\/a>"],[0,1,"<a href=\"User.php.html#37\">App\\Models\\User::favoriteMovies<\/a>"],[0,1,"<a href=\"User.php.html#45\">App\\Models\\User::favoritePeople<\/a>"],[0,1,"<a href=\"User.php.html#54\">App\\Models\\User::hasFavorited<\/a>"],[0,1,"<a href=\"User.php.html#62\">App\\Models\\User::hasFavoritedModel<\/a>"],[0,1,"<a href=\"Watchlist.php.html#14\">App\\Models\\Watchlist::user<\/a>"],[0,1,"<a href=\"Watchlist.php.html#18\">App\\Models\\Watchlist::movies<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

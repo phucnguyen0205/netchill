@@ -13,7 +13,9 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->default('user'); // Thêm cột role luôn
+            // KHÔNG dùng ->after() khi tạo bảng
+            $table->string('gender', 20)->nullable();
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

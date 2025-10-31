@@ -30,5 +30,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+'vnpay' => [
+    'url'         => env('VNP_URL', 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'),
+    'tmn_code'    => env('VNP_TMN_CODE'),
+    'hash_secret' => env('VNP_HASH_SECRET'),
+    'return_url'  => env('VNP_RETURN_URL', 'https://your-domain.com/vnpay/return'),
+    'ipn_url'     => env('VNP_IPN_URL', 'https://your-domain.com/vnpay/ipn'),
+],
 ];

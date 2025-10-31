@@ -3,30 +3,48 @@
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true"
->
-    <testsuites>
-        <testsuite name="Unit">
-            <directory>tests/Unit</directory>
-        </testsuite>
-        <testsuite name="Feature">
-            <directory>tests/Feature</directory>
-        </testsuite>
-    </testsuites>
-    <source>
-        <include>
-            <directory>app</directory>
-        </include>
-    </source>
-    <php>
-        <env name="APP_ENV" value="testing"/>
-        <env name="BCRYPT_ROUNDS" value="4"/>
-        <env name="CACHE_DRIVER" value="array"/>
-        <!-- <env name="DB_CONNECTION" value="sqlite"/> -->
-        <!-- <env name="DB_DATABASE" value=":memory:"/> -->
-        <env name="MAIL_MAILER" value="array"/>
-        <env name="PULSE_ENABLED" value="false"/>
-        <env name="QUEUE_CONNECTION" value="sync"/>
-        <env name="SESSION_DRIVER" value="array"/>
-        <env name="TELESCOPE_ENABLED" value="false"/>
-    </php>
+         stopOnFailure="false">
+
+  <!-- Suites -->
+  <testsuites>
+    <testsuite name="Unit">
+      <directory>tests/Unit</directory>
+    </testsuite>
+    <testsuite name="Feature">
+      <directory>tests/Feature</directory>
+    </testsuite>
+  </testsuites>
+
+  <!-- Code under test -->
+  <source>
+    <include>
+      <directory>app</directory>
+    </include>
+  </source>
+
+  <!-- Env for tests -->
+  <php>
+    <env name="APP_ENV" value="testing"/>
+    <env name="BCRYPT_ROUNDS" value="4"/>
+    <env name="CACHE_DRIVER" value="array"/>
+    <env name="SESSION_DRIVER" value="array"/>
+    <env name="QUEUE_CONNECTION" value="sync"/>
+    <env name="MAIL_MAILER" value="array"/>
+    <env name="TELESCOPE_ENABLED" value="false"/>
+    <env name="PULSE_ENABLED" value="false"/>
+    <!-- Mọi cấu hình DB sẽ lấy từ .env.testing (khuyến nghị) -->
+  </php>
+
+  <!-- Test report (HTML) -->
+  <logging>
+    <testdoxHtml outputFile="storage/test-reports/live-test.html"/>
+  </logging>
+
+  <!-- Coverage (tuỳ chọn – cần Xdebug/PCOV) -->
+  <coverage>
+    <report>
+      <html outputDirectory="storage/test-reports/coverage"/>
+      <text outputFile="storage/test-reports/coverage.txt"/>
+    </report>
+  </coverage>
 </phpunit>
