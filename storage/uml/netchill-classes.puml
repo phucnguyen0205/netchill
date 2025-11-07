@@ -1,0 +1,27 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+
+class Movie {
+  +id : int
+  +title : string
+  +description : text
+}
+class Category {
+  +id : int
+  +name : string
+}
+class Genre
+class Country
+class Rating
+class Showtime
+class Episode
+
+Movie "1" -- "*" Category
+Movie "1" -- "*" Genre
+Movie "1" -- "*" Country
+Movie "1" -- "*" Rating
+Movie "1" -- "*" Showtime
+Showtime "1" -- "*" Episode
+
+@enduml

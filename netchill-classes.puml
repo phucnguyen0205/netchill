@@ -1,0 +1,65 @@
+@startuml
+' ==========================
+' NetChill Class Diagram
+' ==========================
+
+skinparam backgroundColor #ffffff
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 14
+
+' === Classes ===
+class Movie {
+  +id : int
+  +title : string
+  +description : text
+  +release_date : date
+}
+
+class Category {
+  +id : int
+  +name : string
+}
+
+class Genre {
+  +id : int
+  +name : string
+}
+
+class Country {
+  +id : int
+  +name : string
+}
+
+class Rating {
+  +id : int
+  +movie_id : int
+  +user_id : int
+  +stars : int
+}
+
+class Showtime {
+  +id : int
+  +movie_id : int
+  +date : date
+  +time : string
+}
+
+class Episode {
+  +id : int
+  +showtime_id : int
+  +episode_number : int
+  +video_url : string
+}
+
+' === Relationships ===
+Movie "1" -- "*" Category
+Movie "1" -- "*" Genre
+Movie "1" -- "*" Country
+Movie "1" -- "*" Rating
+Movie "1" -- "*" Showtime
+Showtime "1" -- "*" Episode
+
+@enduml
+
